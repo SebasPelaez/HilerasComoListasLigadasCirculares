@@ -20,16 +20,32 @@ public class PracticaUno {
      */
     public static void main(String[] args) {
         Lista_C lista = new Lista_C();
-        Nodo p;
-        Scanner leer = new Scanner(System.in);
-        for (int i=1;i<10;i++){
-            System.out.println("Dato: " + i);
-            lista.Insert(leer.next().charAt(0), lista.LastNode());
-        }
+        construirEnLista(lista);
         lista.Print();
         System.out.println("");
-        lista.Reverse();
+        agregarHilera(lista);
         lista.Print();
     }
     
+    public static void construirEnLista(Lista_C lista){
+        Scanner leer = new Scanner(System.in);
+        System.out.println("Ingrese Cadena");
+        String cadena = leer.next().replaceAll("\\p{Punct}+", ""); 
+        for (int i=0;i<cadena.length();i++){
+           lista.Insert(cadena.charAt(i), lista.LastNode());
+        }
+        /*
+        lista.Print();
+        System.out.println("");
+        lista.Reverse();*/
+    }
+    
+    public static void agregarHilera(Lista_C lista){
+        Scanner leer = new Scanner(System.in);
+        System.out.println("Ingrese la cadena que quiera agregar");
+        String cadena = leer.next().replaceAll("\\p{Punct}+", ""); 
+        for (int i=0;i<cadena.length();i++){
+           lista.Insert(cadena.charAt(i), lista.LastNode());
+        }
+    }
 }
