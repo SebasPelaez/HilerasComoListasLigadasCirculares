@@ -36,7 +36,7 @@ public class Lista_C {
         Nodo p = FirstNode();
         if (!IsVoid()) {
             do {
-                System.out.print(p.getDato() + " || ");
+                System.out.print(p.getDato() + "|"+p.getIndice()+"|| ");
                 p = p.getLiga();
             } while (!IstheEnd(p));
         } else {
@@ -68,12 +68,14 @@ public class Lista_C {
         if (y != null) {
             x.setLiga(y.getLiga());
             y.setLiga(x);
+            x.setIndice(y.getIndice()+1);
             if (y == LastNode()) {
                 last = x;
             }
         } else {
             if (IsVoid()) {
                 x.setLiga(x);
+                x.setIndice(1);
                 first = last = x;
             }
 
@@ -115,6 +117,7 @@ public class Lista_C {
                 q = p;
                 p = p.getLiga();
                 q.setLiga(r);
+                
             } while (!IstheEnd(p));
             first = q;
         }

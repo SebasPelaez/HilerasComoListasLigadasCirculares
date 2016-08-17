@@ -23,7 +23,8 @@ public class PracticaUno {
         construirEnLista(lista);
         lista.Print();
         System.out.println("");
-        agregarHilera(lista);
+        //agregarHilera(lista);
+        lista.Reverse();
         lista.Print();
     }
     
@@ -48,4 +49,6 @@ public class PracticaUno {
            lista.Insert(cadena.charAt(i), lista.LastNode());
         }
     }
+    
+  
 }
