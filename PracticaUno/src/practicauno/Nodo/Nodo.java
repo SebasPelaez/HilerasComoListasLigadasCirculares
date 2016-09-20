@@ -33,6 +33,7 @@ public class Nodo {
     public Nodo(char dato) {
         this.dato = dato;
         this.liga = null;
+        this.indice = 0;
     }
     
 }

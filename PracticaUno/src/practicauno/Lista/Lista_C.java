@@ -16,84 +16,83 @@ public class Lista_C {
         first = last = null;
     }
 
-    public boolean IsVoid() {//PREGUNTA SI LA LISTA ESTA VACIA
+    public boolean isVoid() {//PREGUNTA SI LA LISTA ESTA VACIA
         return (first == null);
     }
 
-    public Nodo FirstNode() { //RETORNA EL PRIMERO
+    public Nodo firstNode() { //RETORNA EL PRIMERO
         return first;
     }
 
-    public Nodo LastNode() {//RETORNA EL ULTIMO
+    public Nodo lastNode() {//RETORNA EL ULTIMO
         return last;
     }
 
-    public boolean IstheEnd(Nodo x) {// PREGUNTA SI LA LISTA ACABO LA LISTA
+    public boolean istheEnd(Nodo x) {// PREGUNTA SI LA LISTA ACABO LA LISTA
         return (x == first);
     }
 
-    public void Print() {//IMPRIME LOS DATOS DE LA LISTA
-        Nodo p = FirstNode();
-        if (!IsVoid()) {
+    public void print() {//IMPRIME LOS DATOS DE LA LISTA
+        Nodo p = firstNode();
+        if (!isVoid()) {
             do {
                 System.out.print(p.getDato() + "|"+p.getIndice()+"|| ");
                 p = p.getLiga();
-            } while (!IstheEnd(p));
+            } while (!istheEnd(p));
         } else {
             System.out.println("Lista Vacia");
         }
     }
 
-    public Nodo PreviousNode(Nodo x) {
-        if (IsVoid()) {
+    public Nodo previousNode(Nodo x) {
+        if (isVoid()) {
             System.out.println("Lista vacia");
             return null;
         } else {
             Nodo p, q;
-            p = FirstNode();
+            p = firstNode();
             do {
                 q = p;
                 p = p.getLiga();
-            } while (!IstheEnd(p) && p != x);
+            } while (!istheEnd(p) && p != x);
             return q;
         }
     }
 
-    public void Insert(char data, Nodo y) {
+    public void insertNodo(char data, Nodo y) {
         Nodo x = new Nodo(data);
-        Connect(x, y);
+        connect(x, y);
     }
 
-    public void Connect(Nodo x, Nodo y) {
+    public void connect(Nodo x, Nodo y) {
         if (y != null) {
             x.setLiga(y.getLiga());
             y.setLiga(x);
             x.setIndice(y.getIndice()+1);
-            if (y == LastNode()) {
+            if (y == lastNode()) {
                 last = x;
             }
         } else {
-            if (IsVoid()) {
+            if (isVoid()) {
                 x.setLiga(x);
                 x.setIndice(1);
                 first = last = x;
             }
-
         }
     }
 
-    public void Delete(Nodo x) {
+    public void delete(Nodo x) {
         if (x == null) {
             System.out.println("El nodo no existe");
             return;
         }
-        Disconnect(x, PreviousNode(x));
+        disconnect(x, previousNode(x));
     }
 
-    public void Disconnect(Nodo x, Nodo y) {
-        if (x != FirstNode()) {
+    public void disconnect(Nodo x, Nodo y) {
+        if (x != firstNode()) {
             y.setLiga(x.getLiga());
-            if (x == LastNode()) {
+            if (x == lastNode()) {
                 last = y;
             }
         } else {
@@ -104,21 +103,21 @@ public class Lista_C {
         }
     }
 
-    public void Reverse() {
-        if (IsVoid()) {
+    public void reverse() {
+        if (isVoid()) {
             System.out.println("Lista vacia");
         } else {
             Nodo p, q, r;
-            p = FirstNode();
+            p = firstNode();
             last = p;
-            q = PreviousNode(p);
+            q = previousNode(p);
             do {
                 r = q;
                 q = p;
                 p = p.getLiga();
                 q.setLiga(r);
                 
-            } while (!IstheEnd(p));
+            } while (!istheEnd(p));
             first = q;
         }
     }

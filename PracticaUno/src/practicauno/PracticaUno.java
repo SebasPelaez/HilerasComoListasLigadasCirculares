@@ -5,9 +5,10 @@
  */
 package practicauno;
 
-import java.util.Scanner;
-import practicauno.Lista.Lista_C;
-import practicauno.Nodo.Nodo;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import practicauno.Lista.Hilera;
 
 /**
  *
@@ -15,25 +16,25 @@ import practicauno.Nodo.Nodo;
  */
 public class PracticaUno {
 
+    static BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Lista_C lista = new Lista_C();
+    public static void main(String[] args) throws IOException {
+        Hilera lista = new Hilera();
         construirEnLista(lista);
-        lista.Print();
+        lista.print();
         System.out.println("");
-        //agregarHilera(lista);
-        lista.Reverse();
-        lista.Print();
+        agregarHilera(lista);
+        System.out.println("");
+        lista.print();
     }
     
-    public static void construirEnLista(Lista_C lista){
-        Scanner leer = new Scanner(System.in);
+    public static void construirEnLista(Hilera lista) throws IOException{
         System.out.println("Ingrese Cadena");
-        String cadena = leer.next().replaceAll("\\p{Punct}+", ""); 
+        String cadena = br.readLine().replaceAll("\\p{Punct}+",""); 
         for (int i=0;i<cadena.length();i++){
-           lista.Insert(cadena.charAt(i), lista.LastNode());
+           lista.insertNodo(cadena.charAt(i), lista.lastNode());
         }
         /*
         lista.Print();
@@ -41,13 +42,15 @@ public class PracticaUno {
         lista.Reverse();*/
     }
     
-    public static void agregarHilera(Lista_C lista){
-        Scanner leer = new Scanner(System.in);
+    public static void agregarHilera(Hilera lista) throws IOException{
         System.out.println("Ingrese la cadena que quiera agregar");
-        String cadena = leer.next().replaceAll("\\p{Punct}+", ""); 
+        Hilera t = new Hilera();
+        String cadena = br.readLine().replaceAll("\\p{Punct}+", ""); 
         for (int i=0;i<cadena.length();i++){
-           lista.Insert(cadena.charAt(i), lista.LastNode());
+           t.insertNodo(cadena.charAt(i), t.lastNode());
         }
+        t.print();
+        lista.insertarHilera(t, 0);//Primer parametro es la hilera que quiero insertar, segundo parametro es la pos en la cual lo voy a insertar
     }
     
   
