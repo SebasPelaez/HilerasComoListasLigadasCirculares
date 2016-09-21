@@ -21,10 +21,18 @@ public class PracticaUno {
         construirEnLista(lista);
         lista.print();
         System.out.println("");
-        //invertirLista(lista);
-        //lista.print();
-        eliminarHilera(lista);
-        lista.print();
+        /*
+            invertirLista(lista);
+            lista.print();
+        */
+        /*
+            eliminarHilera(lista);
+            lista.print();
+        */
+        Hilera b=new Hilera();
+        construirEnLista(b);
+        b.print();
+        isSubString(lista, b);
     }
     
     public static void construirEnLista(Hilera lista) throws IOException{
@@ -69,6 +77,14 @@ public class PracticaUno {
     
     public static void eliminarHilera(Hilera lista){
         lista.eliminarHilera(16, 1, false);
+    }
+    
+    public static void isSubString(Hilera a, Hilera b){
+        if(a.isSubString(b)){
+            System.out.println("ES SUBSTRING");
+        }else{
+            System.out.println("NO ES SUBSTRING");
+        }
     }
     
   

@@ -35,7 +35,24 @@ public class Hilera extends Lista_C {
             q = q.getLiga();
         } while (!t.istheEnd(q));
     }
-
+    
+    /*NUESTRO PROPIO .LENGTH
+    
+    */
+    public int tamaño(){
+        if(isVoid()){
+            return 0;
+        }
+        Nodo p=firstNode();
+        int cont=0;
+        do{
+            cont++;
+            p=p.getLiga();
+        }while(!istheEnd(p));
+        return cont;
+    }
+    
+    
     /*INICIO METODO 4
         Metodo 4: Invertir la hilera (Si la hilera ingresada es hola,
         y el usuario selecciona esta opción, la nueva hilera será aloh)
@@ -120,5 +137,40 @@ public class Hilera extends Lista_C {
         Metodo 2:Eliminar hilera original o parte de ella.
      */
     
+    /*INICIO METODO 6
+        Metodo 6: Determinar si la hilera original es substring de otra hilera entrada por pantalla, o viceversa, es
+        decir, si la hilera entrada por pantalla es substring de la hilera original. (Si la hilera inicial es hola,
+        y el substring ingresado por el usuario es ol, entonces el programa debe mostrar un mensaje indicando que ol
+        es un substring de hola)
+     */
+    public boolean isSubString(Hilera t){
+        boolean resultado=false;
+        Nodo p=firstNode();
+        int cont=0;
+        Nodo q=t.firstNode();
+        do{
+            if(p.getDato()==q.getDato()){
+                p=p.getLiga();
+                q=q.getLiga();
+                cont++;
+            }else{
+                if(q!=t.firstNode()){
+                    q=t.firstNode();
+                    cont=0;
+                }                
+                p=p.getLiga();
+            }
+        }while(!istheEnd(p)&& cont!=t.tamaño());
+        if(!istheEnd(p) || cont==t.tamaño()){
+            resultado=true;
+        }
+        return resultado;
+    }
+    /*FIN METODO 6
+        Metodo 6: Determinar si la hilera original es substring de otra hilera entrada por pantalla, o viceversa, es
+        decir, si la hilera entrada por pantalla es substring de la hilera original. (Si la hilera inicial es hola,
+        y el substring ingresado por el usuario es ol, entonces el programa debe mostrar un mensaje indicando que ol
+        es un substring de hola)
+     */
     
 }
