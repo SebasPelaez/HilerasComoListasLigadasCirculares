@@ -54,7 +54,7 @@ public class Lista_C {
             do {
                 q = p;
                 p = p.getLiga();
-            } while (!istheEnd(p) && p != x);
+            } while (!istheEnd(p) && p != x);
             return q;
         }
     }
