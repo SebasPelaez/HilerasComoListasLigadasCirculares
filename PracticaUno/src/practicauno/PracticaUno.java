@@ -25,9 +25,8 @@ public class PracticaUno {
         Hilera lista = new Hilera();
         construirEnLista(lista);
         lista.print();
-        System.out.println("");
-        invertirLista(lista);
-        lista.print();
+        boolean b = lista.esPalindrome();
+        System.out.println(b);
     }
     
     public static void construirEnLista(Hilera lista) throws IOException{
