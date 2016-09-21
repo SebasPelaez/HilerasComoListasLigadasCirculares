@@ -129,23 +129,11 @@ public class Lista_C {
         return q;
     }
 
-    public void reverse() {
-        if (isVoid()) {
-            System.out.println("Lista vacia");
-        } else {
-            Nodo p, q, r;
-            p = firstNode();
-            last = p;
-            q = previousNode(p);
-            do {
-                r = q;
-                q = p;
-                p = p.getLiga();
-                q.setLiga(r);
-                
-            } while (!istheEnd(p));
-            first = q;
-        }
+    public void setFirst(Nodo first) {
+        this.first = first;
     }
     
+    public void setLast(Nodo last) {
+        this.last = last;
+    }
 }

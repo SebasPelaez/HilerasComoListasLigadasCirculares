@@ -26,7 +26,7 @@ public class PracticaUno {
         construirEnLista(lista);
         lista.print();
         System.out.println("");
-        borrarDato(lista);
+        invertirLista(lista);
         lista.print();
     }
     
@@ -64,6 +64,10 @@ public class PracticaUno {
         }
         t.print();
         lista.insertarHilera(t, 0);//Primer parametro es la hilera que quiero insertar, segundo parametro es la pos en la cual lo voy a insertar
+    }
+    
+    public static void invertirLista(Hilera lista){
+        lista.invertirHilera();
     }
     
   
