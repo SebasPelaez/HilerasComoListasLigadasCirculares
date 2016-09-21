@@ -17,6 +17,9 @@ public class Hilera extends Lista_C {
 
     }
 
+    /*WAZA, aqui esta lo que yo había hecho, solo falta validar el agregado al inicio, como le digo
+    si quiere lo termina de modificar o lo borra del todo
+    */
     public void insertarHilera(Hilera t, int i) {
         Nodo p = firstNode();
         Nodo ant = previousNode(p);

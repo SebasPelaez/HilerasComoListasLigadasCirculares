@@ -36,7 +36,7 @@ public class Lista_C {
         Nodo p = firstNode();
         if (!isVoid()) {
             do {
-                System.out.print(p.getDato() + "|"+p.getIndice()+"|| ");
+                System.out.print(p.getDato() + "|" + p.getIndice() + "|| ");
                 p = p.getLiga();
             } while (!istheEnd(p));
         } else {
@@ -54,7 +54,7 @@ public class Lista_C {
             do {
                 q = p;
                 p = p.getLiga();
-            } while (!istheEnd(p) && p != x);
+            } while (!istheEnd(p) && p != x);
             return q;
         }
     }
@@ -68,19 +68,17 @@ public class Lista_C {
         if (y != null) {
             x.setLiga(y.getLiga());
             y.setLiga(x);
-            x.setIndice(y.getIndice()+1);
+            x.setIndice(y.getIndice() + 1);
             if (y == lastNode()) {
                 last = x;
             }
-        } else {
-            if (isVoid()) {
-                x.setLiga(x);
-                x.setIndice(1);
-                first = last = x;
-            }
+        } else if (isVoid()) {
+            x.setLiga(x);
+            x.setIndice(1);
+            first = last = x;
         }
     }
-
+    
     public void delete(Nodo x) {
         if (x == null) {
             System.out.println("El nodo no existe");
@@ -90,17 +88,45 @@ public class Lista_C {
     }
 
     public void disconnect(Nodo x, Nodo y) {
-        if (x != firstNode()) {
-            y.setLiga(x.getLiga());
-            if (x == lastNode()) {
-                last = y;
-            }
+        if (firstNode() == lastNode()) {
+            first = last = null;
         } else {
-            first = first.getLiga();
-            if (first == null) {
-                last = null;
+            if (x != firstNode()) {
+                y.setLiga(x.getLiga());
+                if (x == lastNode()) {
+                    last = y;
+                }
+            } else {
+                first = firstNode().getLiga();
+                lastNode().setLiga(firstNode());
             }
+            organizeNode(y.getLiga());
         }
+    }
+
+    public void organizeNode(Nodo p){
+        if(p.getIndice()!=1){
+            do{
+                p.setIndice(p.getIndice()-1);
+                p=p.getLiga();
+            }while(!istheEnd(p));
+        }
+    }
+    
+    public Nodo searchNode(Nodo x){
+        if(firstNode().getDato()==x.getDato()){
+            return previousNode(firstNode());
+        }
+        Nodo p=firstNode();
+        Nodo q=previousNode(p);
+        do{
+            q=p;
+            p=p.getLiga();
+        }while(!istheEnd(p)&& p.getDato()!=x.getDato());
+        if(istheEnd(p)){
+            q=null;
+        }
+        return q;
     }
 
     public void reverse() {
