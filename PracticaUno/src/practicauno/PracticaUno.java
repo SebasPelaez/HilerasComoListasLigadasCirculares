@@ -33,6 +33,8 @@ public class PracticaUno {
         construirEnLista(b);
         b.print();
         isSubString(lista, b);
+        boolean b = lista.esPalindrome();
+        System.out.println(b);
     }
     
     public static void construirEnLista(Hilera lista) throws IOException{

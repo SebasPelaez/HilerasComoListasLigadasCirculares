@@ -173,4 +173,51 @@ public class Hilera extends Lista_C {
         es un substring de hola)
      */
     
+    public Hilera copia(){
+        Hilera copia = new Hilera();
+        Nodo p,x;
+        p = this.firstNode();
+        do{
+            copia.insertNodo(p.getDato(), copia.lastNode());
+            p = p.getLiga();
+        }while(!this.istheEnd(p));
+        return copia;
+    } 
+    
+    //Método 7, el métdo retorna true si la hilera es un palíndrome, false de lo contrario ejemplo ana
+    //es palíndrome ya que se lee igual de izq a der y de der a izq.
+    public boolean esPalindrome(){
+        Nodo p,q;
+        Hilera b= new Hilera();
+        b = this.copia();
+        b.invertirHilera();
+        
+        b.print();
+        
+        p = this.firstNode();
+        q = b.firstNode();
+        
+        do
+          if(p.getDato()== q.getDato()){
+              p = p.getLiga();
+              q = q.getLiga();
+          }else{
+          return false;
+          }   
+        while(!this.istheEnd(p));
+        return true;
+    }
+    
+    public void replace(int i, int j){
+        Nodo p,q;
+        int c=1;
+        if(!isVoid()){
+            p=firstNode();
+            do{
+                c++;
+                p=p.getLiga();
+            }while(c<i);
+        }
+    
+    }
 }
