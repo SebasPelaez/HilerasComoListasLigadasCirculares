@@ -21,7 +21,9 @@ public class PracticaUno {
         construirEnLista(lista);
         lista.print();
         System.out.println("");
-        invertirLista(lista);
+        //invertirLista(lista);
+        //lista.print();
+        eliminarHilera(lista);
         lista.print();
     }
     
@@ -63,6 +65,10 @@ public class PracticaUno {
     
     public static void invertirLista(Hilera lista){
         lista.invertirHilera();
+    }
+    
+    public static void eliminarHilera(Hilera lista){
+        lista.eliminarHilera(16, 1, false);
     }
     
   
