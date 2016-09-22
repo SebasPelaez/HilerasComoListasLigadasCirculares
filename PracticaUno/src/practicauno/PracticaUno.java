@@ -19,22 +19,28 @@ public class PracticaUno {
     public static void main(String[] args) throws IOException {
         Hilera lista = new Hilera();
         construirEnLista(lista);
+        Hilera lista2 = new Hilera();
+        construirEnLista(lista2);
+        lista.replace(1, 1, lista2);
         lista.print();
         System.out.println("");
-        /*
-            invertirLista(lista);
-            lista.print();
-        */
-        /*
-            eliminarHilera(lista);
-            lista.print();
-        */
-        Hilera b=new Hilera();
-        construirEnLista(b);
-        b.print();
-        isSubString(lista, b);
-        boolean b = lista.esPalindrome();
-        System.out.println(b);
+//        /*
+//            invertirLista(lista);
+//            lista.print();
+//        */
+//        /*
+//            eliminarHilera(lista);
+//            lista.print();
+//        */
+//        Hilera b=new Hilera();
+//        construirEnLista(b);
+//        b.print();
+//        isSubString(lista, b);
+//        boolean c= lista.esPalindrome();
+//        System.out.println(b);
+        
+        
+        
     }
     
     public static void construirEnLista(Hilera lista) throws IOException{

@@ -39,7 +39,7 @@ public class Hilera extends Lista_C {
     /*NUESTRO PROPIO .LENGTH
     
     */
-    public int tamaño(){
+    public int tamanio(){
         if(isVoid()){
             return 0;
         }
@@ -133,7 +133,7 @@ public class Hilera extends Lista_C {
         setFirst(null);
         setLast(null);
     }
-    /*FIM METODO 2
+    /*FIM METODO 2   
         Metodo 2:Eliminar hilera original o parte de ella.
      */
     
@@ -160,8 +160,8 @@ public class Hilera extends Lista_C {
                 }                
                 p=p.getLiga();
             }
-        }while(!istheEnd(p)&& cont!=t.tamaño());
-        if(!istheEnd(p) || cont==t.tamaño()){
+        }while(!istheEnd(p)&& cont!=t.tamanio());
+        if(!istheEnd(p) || cont==t.tamanio()){
             resultado=true;
         }
         return resultado;
@@ -208,15 +208,39 @@ public class Hilera extends Lista_C {
         return true;
     }
     
-    public void replace(int i, int j){
-        Nodo p,q;
+    public void replace(int i, int j,Hilera s){
+        Nodo p,q,pp;
         int c=1;
         if(!isVoid()){
             p=firstNode();
+            pp=p;            
+            if(i+j <= tamanio()+1){
+                do{
+                c++;
+                pp=p;
+                p=p.getLiga();
+            }while(c<i);
+            c=1;
             do{
                 c++;
                 p=p.getLiga();
-            }while(c<i);
+            }while(c<j);
+            if(tamanio()==1){
+                setFirst(s.firstNode());
+                setLast(s.lastNode()); 
+            }
+            if(i==1 && j==1){
+                setFirst(s.firstNode());
+                s.lastNode().setLiga(pp.getLiga());
+                lastNode().setLiga(s.firstNode());
+            }else{
+                pp.setLiga(s.firstNode());
+              s.lastNode().setLiga(p.getLiga());
+            }
+              
+            } 
+        }else{
+            System.out.println("Lista Vacia");
         }
     
     }
