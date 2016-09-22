@@ -292,7 +292,7 @@ public class Hilera extends Lista_C {
             p = firstNode();
             pp = p;
             int c = 1;
-            if (i <= tamanio()) {
+            if (i <tamanio()) {
                 if (i > 1) {
                     do {
                         c++;
@@ -307,7 +307,13 @@ public class Hilera extends Lista_C {
                     setFirst(s.firstNode());
                 }
             }else{
+                if(i==tamanio()){
+                    lastNode().setLiga(s.firstNode());
+                    s.lastNode().setLiga(firstNode());
+                    setLast(s.lastNode());
+                }else {
                 System.out.println("El índice debe ser menor que: "+ tamanio());
+                }  
             }
 
         }

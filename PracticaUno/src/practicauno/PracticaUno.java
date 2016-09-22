@@ -21,7 +21,7 @@ public class PracticaUno {
         construirEnLista(lista);
         Hilera lista2 = new Hilera();
         construirEnLista(lista2);
-        lista.insert(1,lista2);
+        lista.insert(4,lista2);
         lista.print();
         System.out.println("");
 //        /*
