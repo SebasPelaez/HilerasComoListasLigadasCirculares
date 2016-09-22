@@ -21,7 +21,7 @@ public class PracticaUno {
         construirEnLista(lista);
         Hilera lista2 = new Hilera();
         construirEnLista(lista2);
-        lista.replace(1, 1, lista2);
+        lista.insert(1,lista2);
         lista.print();
         System.out.println("");
 //        /*
@@ -41,6 +41,28 @@ public class PracticaUno {
         
         
         
+        /*
+            invertirLista(lista);
+            lista.print();
+        */
+        /*
+            eliminarHilera(lista);
+            lista.print();
+        */
+        /*
+        Hilera b=new Hilera();
+        construirEnLista(b);
+        b.print();
+        isSubString(lista, b);
+        */
+        /*
+        boolean c = lista.esPalindrome();
+        System.out.println(c);
+        */
+//        Hilera b=new Hilera();
+//        construirEnLista(b);
+//        b.print();
+//        isAnagrama(lista, b);
     }
     
     public static void construirEnLista(Hilera lista) throws IOException{
@@ -92,6 +114,14 @@ public class PracticaUno {
             System.out.println("ES SUBSTRING");
         }else{
             System.out.println("NO ES SUBSTRING");
+        }
+    }
+    
+    public static void isAnagrama(Hilera a,Hilera b){
+        if(a.isAnagrama(b)){
+            System.out.println("Es Anagrama");
+        }else{
+            System.out.println("No es Anagrama");
         }
     }
     
