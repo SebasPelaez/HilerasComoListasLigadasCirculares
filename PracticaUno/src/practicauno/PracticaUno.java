@@ -19,9 +19,9 @@ public class PracticaUno {
     public static void main(String[] args) throws IOException {
         Hilera lista = new Hilera();
         construirEnLista(lista);
-        Hilera lista2 = new Hilera();
-        construirEnLista(lista2);
-        lista.insert(4,lista2);
+//        Hilera lista2 = new Hilera();
+//        construirEnLista(lista2);
+        lista.ordenar();
         lista.print();
         System.out.println("");
 //        /*

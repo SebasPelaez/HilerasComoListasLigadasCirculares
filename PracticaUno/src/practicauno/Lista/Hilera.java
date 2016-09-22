@@ -292,7 +292,7 @@ public class Hilera extends Lista_C {
             p = firstNode();
             pp = p;
             int c = 1;
-            if (i <tamanio()) {
+            if (i < tamanio()) {
                 if (i > 1) {
                     do {
                         c++;
@@ -306,16 +306,35 @@ public class Hilera extends Lista_C {
                     s.lastNode().setLiga(firstNode());
                     setFirst(s.firstNode());
                 }
-            }else{
-                if(i==tamanio()){
-                    lastNode().setLiga(s.firstNode());
-                    s.lastNode().setLiga(firstNode());
-                    setLast(s.lastNode());
-                }else {
-                System.out.println("El índice debe ser menor que: "+ tamanio());
-                }  
+            } else if (i == tamanio()) {
+                lastNode().setLiga(s.firstNode());
+                s.lastNode().setLiga(firstNode());
+                setLast(s.lastNode());
+            } else {
+                System.out.println("El índice debe ser menor que: " + tamanio());
             }
 
+        }
+    }
+
+    public void ordenar() {
+        Nodo p, pp;
+        char aux;
+        int c;
+        for (int i = tamanio(); i > 1; i--) {
+            c = 1;
+            p = firstNode();
+            pp = p;
+            do {
+                c++;
+                pp = p;
+                p = p.getLiga();
+                if (pp.getDato() > p.getDato()) {
+                    aux=pp.getDato();
+                    pp.setDato(p.getDato());
+                    p.setDato(aux);
+                }
+            } while (c < i);
         }
     }
 
