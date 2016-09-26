@@ -5,6 +5,7 @@
  */
 package practicauno.Lista;
 
+import javax.swing.JTextArea;
 import practicauno.Nodo.Nodo;
 
 /**
@@ -18,6 +19,12 @@ public class Hilera extends Lista_C {
 
     }
 
+    public void construirEnLista(String cadena) {
+        for (int i = 0; i < cadena.length(); i++) {
+            insertNodo(cadena.charAt(i), lastNode());
+        }
+    }
+    
     /*NUESTRO PROPIO .LENGTH
     
      */
@@ -111,7 +118,7 @@ public class Hilera extends Lista_C {
         }
     }
 
-    public void eliminarHileraFull() {
+    private void eliminarHileraFull() {
         setFirst(null);
         setLast(null);
     }
@@ -174,9 +181,6 @@ public class Hilera extends Lista_C {
         Hilera b = new Hilera();
         b = this.copia();
         b.invertirHilera();
-
-        b.print();
-
         p = this.firstNode();
         q = b.firstNode();
 
@@ -316,6 +320,19 @@ public class Hilera extends Lista_C {
                     p.setDato(aux);
                 }
             } while (c < i);
+        }
+    }
+    
+    public void pintarLista(JTextArea txt) {//IMPRIME LOS DATOS DE LA LISTA
+        txt.setText("");
+        Nodo p = firstNode();
+        if (!isVoid()) {
+            do {
+                txt.setText(txt.getText()+p.getDato());
+                p = p.getLiga();
+            } while (!istheEnd(p));
+        } else {
+            System.out.println("Lista Vacia");
         }
     }
 

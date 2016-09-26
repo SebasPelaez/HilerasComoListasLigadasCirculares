@@ -32,18 +32,6 @@ public class Lista_C {
         return (x == first);
     }
 
-    public void print() {//IMPRIME LOS DATOS DE LA LISTA
-        Nodo p = firstNode();
-        if (!isVoid()) {
-            do {
-                System.out.print(p.getDato() + "|" + p.getIndice() + "|| ");
-                p = p.getLiga();
-            } while (!istheEnd(p));
-        } else {
-            System.out.println("Lista Vacia");
-        }
-    }
-
     public Nodo previousNode(Nodo x) {
         if (isVoid()) {
             System.out.println("Lista vacia");
