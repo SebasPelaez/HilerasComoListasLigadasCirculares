@@ -124,6 +124,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
             } else {
                 hilera.construirEnLista(txtCadena.getText());
                 hilera.pintarLista(panelLista.getTxtCadena());
+                hilera.guardarEnArchivo();
+                hilera.generarImagen();
             }
         }
         if (e.getSource() == btnMetodoUno) {
@@ -228,7 +230,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
 
     public void keyTyped(KeyEvent e) {
         char c = e.getKeyChar();
-        if (!Character.isDigit(c) && !Character.isLetter(c)) {
+        if (!Character.isDigit(c) && !Character.isLetter(c)&& c!=KeyEvent.VK_SPACE) {
             e.consume();
         }
     }

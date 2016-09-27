@@ -5,6 +5,8 @@
  */
 package practicauno.Lista;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import javax.swing.JTextArea;
 import practicauno.Nodo.Nodo;
 
@@ -24,11 +26,11 @@ public class Hilera extends Lista_C {
             insertNodo(cadena.charAt(i), lastNode());
         }
     }
-    
+
     /*NUESTRO PROPIO .LENGTH
     
      */
-    public int tamanio() {
+    public int tamano() {
         if (isVoid()) {
             return 0;
         }
@@ -150,8 +152,8 @@ public class Hilera extends Lista_C {
                 }
                 p = p.getLiga();
             }
-        } while (!istheEnd(p) && cont != t.tamanio());
-        if (!istheEnd(p) || cont == t.tamanio()) {
+        } while (!istheEnd(p) && cont != t.tamano());
+        if (!istheEnd(p) || cont == t.tamano()) {
             resultado = true;
         }
         return resultado;
@@ -201,7 +203,7 @@ public class Hilera extends Lista_C {
         if (!isVoid()) {
             p = firstNode();
             pp = p;
-            if (i + j <= tamanio() + 1) {
+            if (i + j <= tamano() + 1) {
                 do {
                     c++;
                     pp = p;
@@ -212,7 +214,7 @@ public class Hilera extends Lista_C {
                     c++;
                     p = p.getLiga();
                 } while (c < j);
-                if (tamanio() == 1) {
+                if (tamano() == 1) {
                     setFirst(s.firstNode());
                     setLast(s.lastNode());
                 }
@@ -242,7 +244,7 @@ public class Hilera extends Lista_C {
         Nodo p = aux.firstNode();
         Nodo q = b.firstNode();
         int cont = 0;
-        while (cont != aux.tamanio()) {
+        while (cont != aux.tamano()) {
             if (p.getDato() == ' ') {
                 p = p.getLiga();
             }
@@ -277,7 +279,7 @@ public class Hilera extends Lista_C {
             p = firstNode();
             pp = p;
             int c = 1;
-            if (i < tamanio()) {
+            if (i < tamano()) {
                 if (i > 1) {
                     do {
                         c++;
@@ -291,12 +293,12 @@ public class Hilera extends Lista_C {
                     s.lastNode().setLiga(firstNode());
                     setFirst(s.firstNode());
                 }
-            } else if (i == tamanio()) {
+            } else if (i == tamano()) {
                 lastNode().setLiga(s.firstNode());
                 s.lastNode().setLiga(firstNode());
                 setLast(s.lastNode());
             } else {
-                System.out.println("El índice debe ser menor que: " + tamanio());
+                System.out.println("El índice debe ser menor que: " + tamano());
             }
 
         }
@@ -306,7 +308,7 @@ public class Hilera extends Lista_C {
         Nodo p, pp;
         char aux;
         int c;
-        for (int i = tamanio(); i > 1; i--) {
+        for (int i = tamano(); i > 1; i--) {
             c = 1;
             p = firstNode();
             pp = p;
@@ -315,24 +317,84 @@ public class Hilera extends Lista_C {
                 pp = p;
                 p = p.getLiga();
                 if (pp.getDato() > p.getDato()) {
-                    aux=pp.getDato();
+                    aux = pp.getDato();
                     pp.setDato(p.getDato());
                     p.setDato(aux);
                 }
             } while (c < i);
         }
     }
-    
+
     public void pintarLista(JTextArea txt) {//IMPRIME LOS DATOS DE LA LISTA
         txt.setText("");
         Nodo p = firstNode();
         if (!isVoid()) {
             do {
-                txt.setText(txt.getText()+p.getDato());
+                txt.setText(txt.getText() + p.getDato());
                 p = p.getLiga();
             } while (!istheEnd(p));
         } else {
             System.out.println("Lista Vacia");
+        }
+    }
+
+    public void guardarEnArchivo() {
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        Nodo p;
+        int contador=1;
+        try {
+            fichero = new FileWriter("src//grafico.txt", false);
+            pw = new PrintWriter(fichero);
+            pw.println("digraph G{");
+            pw.println("node [shape=box];");
+            pw.println("node [style=filled];");
+            pw.println("node [fillcolor=\"#EEEEEE\"];");
+            pw.println("node [color=\"#EEEEEE\"];");
+            pw.println("edge [color=\"#31CEF0\"];");
+            pw.println("Primero [label=Primero, fillcolor=lightblue]");
+            p=firstNode();
+            do {
+                pw.println("Nodo"+contador+" [label="+p.getDato()+"];");
+                p = p.getLiga();
+                contador++;
+            } while (!istheEnd(p));
+            p=firstNode();
+            contador=1;
+            do {
+                if(contador==tamano()){
+                    pw.println("Nodo"+contador+ " -> " +"Nodo"+1);
+                }else{
+                    if(contador==1){
+                        pw.println("Primero"+" -> " +"Nodo"+contador+"[style=dashed,color=red]");
+                    }
+                    pw.println("Nodo"+contador+ " -> " +"Nodo"+(contador+1));
+                }
+                p = p.getLiga();
+                contador++;
+            } while (!istheEnd(p));
+            pw.print("rankdir=LR;}");
+            fichero.close();
+        } catch (Exception e) {
+            System.out.println("Error Creando Archivo");
+            System.out.println(e);
+        }
+    }
+
+    public void generarImagen() {
+        try {
+            ProcessBuilder pbuilder;
+            /*
+			 * Realiza la construccion del comando    
+			 * en la linea de comandos esto es: 
+			 * dot -Tpng -o archivo.png archivo.dot
+             */
+            pbuilder = new ProcessBuilder("C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe", "-Tpng", "-o", "src//grafico.jpg", "src//grafico.txt");
+            pbuilder.redirectErrorStream(true);
+            //Ejecuta el proceso
+            pbuilder.start();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
