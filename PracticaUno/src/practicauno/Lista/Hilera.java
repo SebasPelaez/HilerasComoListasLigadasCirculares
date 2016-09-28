@@ -22,8 +22,14 @@ public class Hilera extends Lista_C {
     }
 
     public void construirEnLista(String cadena) {
-        for (int i = 0; i < cadena.length(); i++) {
-            insertNodo(cadena.charAt(i), lastNode());
+        int n = 0;
+        while (true) {
+            try{
+                insertNodo(cadena.charAt(n),lastNode());
+            } catch(StringIndexOutOfBoundsException e){
+                break;
+            }
+            n++;
         }
     }
 

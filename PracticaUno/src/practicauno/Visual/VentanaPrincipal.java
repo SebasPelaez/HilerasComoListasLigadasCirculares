@@ -46,8 +46,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
         hilera = new Hilera();
 
         setTitle("Practica Uno Logica III");
-        setSize(760, 450);
-        getContentPane().setLayout(null);
+        setSize(900, 450);
+        setLayout(null);
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -126,6 +126,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
                 hilera.pintarLista(panelLista.getTxtCadena());
                 hilera.guardarEnArchivo();
                 hilera.generarImagen();
+                panelLista.pintarLista();
             }
         }
         if (e.getSource() == btnMetodoUno) {
@@ -137,6 +138,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
                 int pos = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Desde que posición deseas insetar?"));
                 hilera.insert(pos, b);
                 hilera.pintarLista(panelLista.getTxtCadena());
+                hilera.guardarEnArchivo();
+                hilera.generarImagen();
             }
         }
 
@@ -152,6 +155,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
                     hilera.eliminarHilera(i, j, false);
                 }
                 hilera.pintarLista(panelLista.getTxtCadena());
+                hilera.guardarEnArchivo();
+                hilera.generarImagen();
             }
         }
 
@@ -165,6 +170,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
                 b.construirEnLista(JOptionPane.showInputDialog(null, "Ingrese la nueva por la cual desea reemplazar"));
                 hilera.replace(i, j, b);
                 hilera.pintarLista(panelLista.getTxtCadena());
+                hilera.guardarEnArchivo();
+                hilera.generarImagen();
             }
         }
 
@@ -174,6 +181,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
             } else {
                 hilera.invertirHilera();
                 hilera.pintarLista(panelLista.getTxtCadena());
+                hilera.guardarEnArchivo();
+                hilera.generarImagen();
             }
         }
 
@@ -183,6 +192,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
             } else {
                 hilera.ordenar();
                 hilera.pintarLista(panelLista.getTxtCadena());
+                hilera.guardarEnArchivo();
+                hilera.generarImagen();
             }
         }
 
@@ -225,7 +236,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
             }
 
         }
-
     }
 
     public void keyTyped(KeyEvent e) {
