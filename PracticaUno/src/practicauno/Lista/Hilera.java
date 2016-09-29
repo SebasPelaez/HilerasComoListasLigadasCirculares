@@ -22,14 +22,16 @@ public class Hilera extends Lista_C {
     }
 
     public void construirEnLista(String cadena) {
-        int n = 0;
-        while (true) {
-            try{
-                insertNodo(cadena.charAt(n),lastNode());
-            } catch(StringIndexOutOfBoundsException e){
-                break;
+        if (cadena != null) {
+            int n = 0;
+            while (true) {
+                try {
+                    insertNodo(cadena.charAt(n), lastNode());
+                } catch (Exception e) {
+                    break;
+                }
+                n++;
             }
-            n++;
         }
     }
 
@@ -348,7 +350,7 @@ public class Hilera extends Lista_C {
         FileWriter fichero = null;
         PrintWriter pw = null;
         Nodo p;
-        int contador=1;
+        int contador = 1;
         try {
             fichero = new FileWriter("src//grafico.txt", false);
             pw = new PrintWriter(fichero);
@@ -359,22 +361,22 @@ public class Hilera extends Lista_C {
             pw.println("node [color=\"#EEEEEE\"];");
             pw.println("edge [color=\"#31CEF0\"];");
             pw.println("Primero [label=Primero, fillcolor=lightblue]");
-            p=firstNode();
+            p = firstNode();
             do {
-                pw.println("Nodo"+contador+" [label="+p.getDato()+"];");
+                pw.println("Nodo" + contador + " [label=" + p.getDato() + "];");
                 p = p.getLiga();
                 contador++;
             } while (!istheEnd(p));
-            p=firstNode();
-            contador=1;
+            p = firstNode();
+            contador = 1;
             do {
-                if(contador==tamano()){
-                    pw.println("Nodo"+contador+ " -> " +"Nodo"+1);
-                }else{
-                    if(contador==1){
-                        pw.println("Primero"+" -> " +"Nodo"+contador+"[style=dashed,color=red]");
+                if (contador == tamano()) {
+                    pw.println("Nodo" + contador + " -> " + "Nodo" + 1);
+                } else {
+                    if (contador == 1) {
+                        pw.println("Primero" + " -> " + "Nodo" + contador + "[style=dashed,color=red]");
                     }
-                    pw.println("Nodo"+contador+ " -> " +"Nodo"+(contador+1));
+                    pw.println("Nodo" + contador + " -> " + "Nodo" + (contador + 1));
                 }
                 p = p.getLiga();
                 contador++;
