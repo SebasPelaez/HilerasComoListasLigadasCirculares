@@ -43,12 +43,12 @@ public class PanelMetodoOcho extends JPanel implements ActionListener, KeyListen
         add(lblNuevaCadena);
 
         txtNuevaCadena = new JTextField();
-        txtNuevaCadena.setBounds(100, 20, 80, 20);
+        txtNuevaCadena.setBounds(80, 20, 80, 20);
         txtNuevaCadena.addKeyListener(this);
         add(txtNuevaCadena);
 
         btnEjecutar = new JButton("Ejecutar Metodo");
-        btnEjecutar.setBounds(20, 75, 160, 30);
+        btnEjecutar.setBounds(20,45, 160, 30);
         btnEjecutar.addActionListener(this);
         add(btnEjecutar);
 

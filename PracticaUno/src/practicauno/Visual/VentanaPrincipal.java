@@ -63,6 +63,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
         panelLista = new PanelLista();
         panelLista.setLocation(390, 18);
         getContentPane().add(panelLista);
+
+        Pestanas = new JTabbedPane();
         
         txtCadena = new JTextArea();
         scrCadena = new JScrollPane(txtCadena);
@@ -115,7 +117,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
     }
 
     public void crearTabs(){
-        Pestanas = new JTabbedPane();
+        
+        Pestanas.removeAll();
 	Pestanas.setBounds(20, 145, 360, 200);
 	Pestanas.addTab("Agregar Una Hilera",new PanelMetodoUno(hilera,panelLista));
         Pestanas.addTab("Eliminar", new PanelMetodoDos(hilera,panelLista));

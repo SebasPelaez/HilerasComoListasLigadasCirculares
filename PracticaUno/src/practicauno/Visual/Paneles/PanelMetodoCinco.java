@@ -6,6 +6,7 @@
 package practicauno.Visual.Paneles;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
@@ -30,7 +31,7 @@ public class PanelMetodoCinco extends JPanel implements ActionListener{
         this.panelLista=panelLista;
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setSize(200, 200);
-        setLayout(null);
+        setLayout(new FlowLayout());
         
         btnEjecutar = new JButton("Ejecutar Metodo");
         btnEjecutar.setBounds(20, 75, 160, 30);

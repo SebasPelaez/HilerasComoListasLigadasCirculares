@@ -6,6 +6,7 @@
 package practicauno.Visual.Paneles;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -46,11 +47,7 @@ public class PanelMetodoUno extends JPanel implements ActionListener, KeyListene
         lblNuevaCadena = new JLabel("Nueva Cadena");
         lblNuevaCadena.setBounds(20, 20, 80, 20);
         add(lblNuevaCadena);
-
-        lblPosicion = new JLabel("Posicion");
-        lblPosicion.setBounds(20, 80, 80, 20);
-        add(lblPosicion);
-
+        
         txtNuevaCadena = new JTextArea();
         scrCadena = new JScrollPane(txtNuevaCadena);
         scrCadena.setBounds(100, 20, 220, 50);
@@ -60,6 +57,10 @@ public class PanelMetodoUno extends JPanel implements ActionListener, KeyListene
         txtNuevaCadena.setWrapStyleWord(true);
         txtNuevaCadena.addKeyListener(this);
         add(scrCadena);
+
+        lblPosicion = new JLabel("Posicion");
+        lblPosicion.setBounds(20, 80, 80, 20);
+        add(lblPosicion);        
 
         txtPosicion = new JTextField();
         txtPosicion.setBounds(100, 80, 80, 20);

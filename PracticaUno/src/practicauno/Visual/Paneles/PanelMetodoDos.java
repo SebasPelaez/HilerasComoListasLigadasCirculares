@@ -41,20 +41,20 @@ public class PanelMetodoDos extends JPanel implements ActionListener, KeyListene
         setLayout(null);
 
         lblPosicion = new JLabel("Posicion Inicial");
-        lblPosicion.setBounds(20, 20, 80, 20);
+        lblPosicion.setBounds(20, 20, 100, 20);
         add(lblPosicion);
 
         lblCantidad = new JLabel("Cantidad Caracteres");
-        lblCantidad.setBounds(20, 45, 80, 20);
+        lblCantidad.setBounds(20, 45, 100, 20);
         add(lblCantidad);
 
         txtPosicion = new JTextField();
-        txtPosicion.setBounds(100, 20, 80, 20);
+        txtPosicion.setBounds(120, 20, 80, 20);
         txtPosicion.addKeyListener(this);
         add(txtPosicion);
 
         txtCantidad = new JTextField();
-        txtCantidad.setBounds(100, 45, 80, 20);
+        txtCantidad.setBounds(120, 45, 80, 20);
         txtCantidad.addKeyListener(this);
         add(txtCantidad);
 
