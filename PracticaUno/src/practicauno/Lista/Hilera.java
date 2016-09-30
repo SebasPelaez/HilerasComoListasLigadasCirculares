@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Juan Sebastian Pelaez, Juan Esteban Marin
  */
 package practicauno.Lista;
 
@@ -11,16 +9,21 @@ import javax.swing.JTextArea;
 import practicauno.Nodo.Nodo;
 
 /**
- *
- * @author jsebastian.pelaez
+ * Clase Hilera que representa el String en forma de lista Ligada, extiende de
+ * la Clase Lista_C la cual corresponde a la estructura Lista simplemente ligada
+ * circular
  */
 public class Hilera extends Lista_C {
-//A
 
+    /**
+     * Metodo Constructor
+     */
     public Hilera() {
-
     }
 
+    /**
+     * Este Metodo ingresa caracter por caracter a la lista
+     */
     public void construirEnLista(String cadena) {
         if (cadena != null) {
             int n = 0;
@@ -35,8 +38,8 @@ public class Hilera extends Lista_C {
         }
     }
 
-    /*NUESTRO PROPIO .LENGTH
-    
+    /**
+     * Retorna el numero de nodos de la lista
      */
     public int tamano() {
         if (isVoid()) {
@@ -51,9 +54,10 @@ public class Hilera extends Lista_C {
         return cont;
     }
 
-    /*INICIO METODO 4
-        Metodo 4: Invertir la hilera (Si la hilera ingresada es hola,
-        y el usuario selecciona esta opción, la nueva hilera será aloh)
+    //Inicio Metodo 4
+    /**
+     *Metodo 4: Invertir la hilera (Si la hilera ingresada es hola,
+     *y el usuario selecciona esta opción, la nueva hilera será aloh)
      */
     public void invertirHilera() {
         if (isVoid()) {
@@ -72,14 +76,11 @@ public class Hilera extends Lista_C {
             setFirst(q);
         }
     }
+    //FIN METODO 4
 
-    /*FIN METODO 4
-        Metodo 4: Invertir la hilera (Si la hilera ingresada es hola,
-        y el usuario selecciona esta opción, la nueva hilera será aloh)
-     */
-
- /*INICIO METODO 2
-        Metodo 2:Eliminar hilera original o parte de ella.
+    //INICIO METODO 2
+    /**
+     *Metodo 2:Eliminar hilera original o parte de ella.
      */
     public void eliminarHilera(int i, int j, boolean full) {
         if (full) {
@@ -132,16 +133,14 @@ public class Hilera extends Lista_C {
         setFirst(null);
         setLast(null);
     }
+    //FIN METODO 2
 
-    /*FIM METODO 2   
-        Metodo 2:Eliminar hilera original o parte de ella.
-     */
-
- /*INICIO METODO 6
-        Metodo 6: Determinar si la hilera original es substring de otra hilera entrada por pantalla, o viceversa, es
-        decir, si la hilera entrada por pantalla es substring de la hilera original. (Si la hilera inicial es hola,
-        y el substring ingresado por el usuario es ol, entonces el programa debe mostrar un mensaje indicando que ol
-        es un substring de hola)
+    //Inicio Metodo 6
+    /**
+     *Metodo 6: Determinar si la hilera original es substring de otra hilera entrada por pantalla, o viceversa, es
+     *decir, si la hilera entrada por pantalla es substring de la hilera original.(Si la hilera inicial es hola,
+     *y el substring ingresado por el usuario es ol, entonces el programa debe mostrar un mensaje indicando que ol
+     *es un substring de hola)
      */
     public boolean isSubString(Hilera t) {
         boolean resultado = false;
@@ -166,12 +165,11 @@ public class Hilera extends Lista_C {
         }
         return resultado;
     }
-
-    /*FIN METODO 6
-        Metodo 6: Determinar si la hilera original es substring de otra hilera entrada por pantalla, o viceversa, es
-        decir, si la hilera entrada por pantalla es substring de la hilera original. (Si la hilera inicial es hola,
-        y el substring ingresado por el usuario es ol, entonces el programa debe mostrar un mensaje indicando que ol
-        es un substring de hola)
+    //FIN METODO SEIS
+    
+    /**
+     * Realiza una copia de la hilera
+     * @return La copia de la Hilera
      */
     public Hilera copia() {
         Hilera copia = new Hilera();
@@ -184,8 +182,11 @@ public class Hilera extends Lista_C {
         return copia;
     }
 
-    //Método 7, el métdo retorna true si la hilera es un palíndrome, false de lo contrario ejemplo ana
-    //es palíndrome ya que se lee igual de izq a der y de der a izq.
+    //INICIO METODO 7
+    /**
+    * Método 7, el métdo retorna true si la hilera es un palíndrome, false de lo contrario ejemplo ana
+    *   es palíndrome ya que se lee igual de izq a der y de der a izq.
+    */
     public boolean esPalindrome() {
         Nodo p, q;
         Hilera b = new Hilera();
@@ -204,7 +205,15 @@ public class Hilera extends Lista_C {
         } while (!this.istheEnd(p));
         return true;
     }
-
+    //FIN METODO 7
+    
+    //INICIO METODO 3
+    /**
+     * 
+     * @param i Posición desde la que empezara a reemplazar
+     * @param j Cantidad de Caracteres
+     * @param s Hilera por la cual reemplzar
+     */
     public void replace(int i, int j, Hilera s) {
         Nodo p, q, pp;
         int c = 1;
@@ -241,10 +250,15 @@ public class Hilera extends Lista_C {
         }
 
     }
-
-    /*INICIO METODO 8
-        Metodo 8:  Determinar si la hilera es anagrama de otra (Si las hileras son salta y atlas, el sistema debe 
-        mostrar un mensaje indicando que son anagramas)
+    //FIN METODO 3
+    
+    //INICIO METODO 8
+     
+    /**
+     * Metodo 8:  Determinar si la hilera es anagrama de otra (Si las hileras son salta y atlas, el sistema debe 
+     *mostrar un mensaje indicando que son anagramas)
+     * @param b Hilera con la cual se comparara si es anagrama
+     * @return verdadero si es Anagrama, falso de lo contrario
      */
     public boolean isAnagrama(Hilera b) {
         boolean respuesta = true;
@@ -275,12 +289,13 @@ public class Hilera extends Lista_C {
 
         return respuesta;
     }
-
-    /*FIN METODO 8
-        Metodo 8:  Determinar si la hilera es anagrama de otra (Si las hileras son salta y atlas, el sistema debe 
-        mostrar un mensaje indicando que son anagramas)
+    //FIN METODO 8
+    //INICIO METODO 1
+    /**
+     * MÉTODO 1: INSERTA UNA HILERA T A PARTIR DEL CARACTER i DE LA HILERA 
+     * @param i Posicion apartir de la cual insertara
+     * @param s Hilera que insertara
      */
-    //MÉTODO 1: INSERTA UNA HILERA T A PARTIR DEL CARACTER i DE LA HILERA ORGINAL
     public void insert(int i, Hilera s) {
         if (!isVoid()) {
             Nodo p, pp;
@@ -311,7 +326,12 @@ public class Hilera extends Lista_C {
 
         }
     }
-
+    //FIN METODO OCHO
+    
+    //INICIO METODO 5
+    /**
+     * Metodo Cinco: Ordena la lista Ascendentemente
+     */
     public void ordenar() {
         Nodo p, pp;
         char aux;
@@ -332,8 +352,14 @@ public class Hilera extends Lista_C {
             } while (c < i);
         }
     }
-
-    public void pintarLista(JTextArea txt) {//IMPRIME LOS DATOS DE LA LISTA
+    //FIN METODO 5
+    
+    
+    /**
+     * Pinta la Hilera en un cuadro de texto
+     * @param txt Cuadro de texto en el cual imprimira el resultado
+     */
+    public void pintarLista(JTextArea txt) {
         txt.setText("");
         Nodo p = firstNode();
         if (!isVoid()) {
@@ -346,6 +372,10 @@ public class Hilera extends Lista_C {
         }
     }
 
+    /**
+     * Metodo que guarda en un archivo de texto los comandos necesarios para que la aplicacion
+     * Graphiz cree la imagen con la representacion de la lista
+     */
     public void guardarEnArchivo() {
         FileWriter fichero = null;
         PrintWriter pw = null;
@@ -389,13 +419,18 @@ public class Hilera extends Lista_C {
         }
     }
 
+    /**
+     * Metodo que genera un archivo JPG a partir de un comando de consola
+     * tomando como parametros la ubicacion del aplicativo, la ruta donde se encuentra el archivo
+     * y la ruta donde guardara la imagen
+     */
     public void generarImagen() {
         try {
             ProcessBuilder pbuilder;
             /*
-			 * Realiza la construccion del comando    
-			 * en la linea de comandos esto es: 
-			 * dot -Tpng -o archivo.png archivo.dot
+             * Realiza la construccion del comando    
+             * en la linea de comandos esto es: 
+             * dot -Tpng -o archivo.png archivo.dot
              */
             pbuilder = new ProcessBuilder("C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe", "-Tpng", "-o", "src//grafico.jpg", "src//grafico.txt");
             pbuilder.redirectErrorStream(true);

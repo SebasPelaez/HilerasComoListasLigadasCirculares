@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Juan Sebastian Pelaez, Juan Esteban Marin
  */
 package practicauno.Visual;
 
@@ -16,12 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import practicauno.Lista.Hilera;
-import practicauno.Nodo.Nodo;
-
+        
 /**
- *
- * @author jsebastian.pelaez
+ * Panel que despliega la imagen con la lista
  */
 public class PanelLista extends JPanel implements ActionListener {
 
@@ -85,7 +80,6 @@ public class PanelLista extends JPanel implements ActionListener {
         add(btnVisualizar);
     }
 
-    @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnVisualizar) {
             panelImagen.remove(scrImagen);

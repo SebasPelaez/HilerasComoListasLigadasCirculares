@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author Juan Sebastian Pelaez, Juan Esteban Marin
  */
 package practicauno.Visual;
 
@@ -28,8 +27,7 @@ import practicauno.Visual.Paneles.PanelMetodoTres;
 import practicauno.Visual.Paneles.PanelMetodoUno;
 
 /**
- *
- * @author jsebastian.pelaez
+ * Clase que Genera el frame donde se realiza la simulacion
  */
 public class VentanaPrincipal extends JFrame implements ActionListener, KeyListener {
 
@@ -51,6 +49,9 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
 
     JTabbedPane Pestanas;
     
+    /**
+     * Constructor
+     */
     public VentanaPrincipal() {
 
         setTitle("Practica Uno Logica III");
@@ -85,6 +86,10 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
 
     }
 
+    /**
+     * Interfaz de la accion del click
+     * @param e Donde se clickeo
+     */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnCrearHilera) {
             if (txtCadena.getText().equals("")) {
@@ -102,20 +107,32 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
             }
         }
     }
-
+    /**
+     * Interfaz de la accion del teclado
+     * @param e Donde se tecleo
+     */
     public void keyTyped(KeyEvent e) {
         char c = e.getKeyChar();
         if (!Character.isDigit(c) && !Character.isLetter(c) && c != KeyEvent.VK_SPACE) {
             e.consume();
         }
     }
-
+/**
+     * Interfaz de la accion del teclado
+     * @param e Donde se tecleo
+     */
     public void keyPressed(KeyEvent e) {
     }
-
+/**
+     * Interfaz de la accion del teclado
+     * @param e Donde se tecleo
+     */
     public void keyReleased(KeyEvent e) {
     }
 
+    /**
+     *Metodo que se encarga de generar las tabs de las operaciones
+     */
     public void crearTabs(){
         
         Pestanas.removeAll();
