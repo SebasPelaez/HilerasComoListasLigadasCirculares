@@ -8,6 +8,8 @@ package practicauno.Visual.Paneles;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -21,39 +23,40 @@ import practicauno.Visual.PanelLista;
  *
  * @author Sebas
  */
-public class PanelMetodoSeis extends JPanel implements ActionListener{
+public class PanelMetodoSeis extends JPanel implements ActionListener, KeyListener {
 
     JButton btnEjecutar;
     JLabel lblNuevaCadena;
     JTextField txtNuevaCadena;
     private Hilera hilera;
     private PanelLista panelLista;
-    
-    public PanelMetodoSeis(Hilera hilera,PanelLista panelLista){
-        this.hilera=hilera;
-        this.panelLista=panelLista;
+
+    public PanelMetodoSeis(Hilera hilera, PanelLista panelLista) {
+        this.hilera = hilera;
+        this.panelLista = panelLista;
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setSize(200, 200);
         setLayout(null);
-        
+
         lblNuevaCadena = new JLabel("Cadena");
         lblNuevaCadena.setBounds(20, 20, 80, 20);
         add(lblNuevaCadena);
-        
+
         txtNuevaCadena = new JTextField();
         txtNuevaCadena.setBounds(100, 20, 80, 20);
+        txtNuevaCadena.addKeyListener(this);
         add(txtNuevaCadena);
-        
+
         btnEjecutar = new JButton("Ejecutar Metodo");
         btnEjecutar.setBounds(20, 75, 160, 30);
         btnEjecutar.addActionListener(this);
         add(btnEjecutar);
-        
+
         setVisible(true);
     }
-    
+
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==btnEjecutar){
+        if (e.getSource() == btnEjecutar) {
             if (hilera.isVoid()) {
                 JOptionPane.showMessageDialog(null, "Debes crear una hilera");
             } else {
@@ -67,5 +70,18 @@ public class PanelMetodoSeis extends JPanel implements ActionListener{
             }
         }
     }
-    
+
+    public void keyTyped(KeyEvent e) {
+        char c = e.getKeyChar();
+        if (!Character.isDigit(c) && !Character.isLetter(c) && c != KeyEvent.VK_SPACE) {
+            e.consume();
+        }
+    }
+
+    public void keyPressed(KeyEvent e) {
+    }
+
+    public void keyReleased(KeyEvent e) {
+    }
+
 }

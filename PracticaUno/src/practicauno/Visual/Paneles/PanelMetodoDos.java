@@ -8,6 +8,8 @@ package practicauno.Visual.Paneles;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -21,7 +23,7 @@ import practicauno.Visual.PanelLista;
  *
  * @author Sebas
  */
-public class PanelMetodoDos extends JPanel implements ActionListener{
+public class PanelMetodoDos extends JPanel implements ActionListener, KeyListener {
 
     JButton btnEjecutar;
     JLabel lblCantidad;
@@ -30,40 +32,42 @@ public class PanelMetodoDos extends JPanel implements ActionListener{
     JTextField txtPosicion;
     private Hilera hilera;
     private PanelLista panelLista;
-    
-    public PanelMetodoDos(Hilera hilera,PanelLista panelLista){
-        this.hilera=hilera;
-        this.panelLista=panelLista;
+
+    public PanelMetodoDos(Hilera hilera, PanelLista panelLista) {
+        this.hilera = hilera;
+        this.panelLista = panelLista;
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setSize(200, 200);
         setLayout(null);
-        
+
         lblPosicion = new JLabel("Posicion Inicial");
         lblPosicion.setBounds(20, 20, 80, 20);
         add(lblPosicion);
-        
+
         lblCantidad = new JLabel("Cantidad Caracteres");
         lblCantidad.setBounds(20, 45, 80, 20);
         add(lblCantidad);
-        
+
         txtPosicion = new JTextField();
         txtPosicion.setBounds(100, 20, 80, 20);
+        txtPosicion.addKeyListener(this);
         add(txtPosicion);
-        
+
         txtCantidad = new JTextField();
         txtCantidad.setBounds(100, 45, 80, 20);
+        txtCantidad.addKeyListener(this);
         add(txtCantidad);
-        
+
         btnEjecutar = new JButton("Ejecutar Metodo");
         btnEjecutar.setBounds(20, 75, 160, 30);
         btnEjecutar.addActionListener(this);
         add(btnEjecutar);
-        
+
         setVisible(true);
     }
-    
+
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==btnEjecutar){
+        if (e.getSource() == btnEjecutar) {
             if (hilera.isVoid()) {
                 JOptionPane.showMessageDialog(null, "Debes crear una hilera");
             } else {
@@ -80,5 +84,18 @@ public class PanelMetodoDos extends JPanel implements ActionListener{
             }
         }
     }
-    
+
+    public void keyTyped(KeyEvent e) {
+        char c = e.getKeyChar();
+        if (!Character.isDigit(c)) {
+            e.consume();
+        }
+    }
+
+    public void keyPressed(KeyEvent e) {
+    }
+
+    public void keyReleased(KeyEvent e) {
+    }
+
 }

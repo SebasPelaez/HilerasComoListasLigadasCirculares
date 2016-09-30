@@ -5,15 +5,13 @@ node [fillcolor="#EEEEEE"];
 node [color="#EEEEEE"];
 edge [color="#31CEF0"];
 Primero [label=Primero, fillcolor=lightblue]
-Nodo1 [label=g];
-Nodo2 [label=s];
-Nodo3 [label=d];
-Nodo4 [label=f];
-Nodo5 [label=g];
+Nodo1 [label=d];
+Nodo2 [label=g];
+Nodo3 [label=h];
+Nodo4 [label=d];
 Primero -> Nodo1[style=dashed,color=red]
 Nodo1 -> Nodo2
 Nodo2 -> Nodo3
 Nodo3 -> Nodo4
-Nodo4 -> Nodo5
-Nodo5 -> Nodo1
+Nodo4 -> Nodo1
 rankdir=LR;}
