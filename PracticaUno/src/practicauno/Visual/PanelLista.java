@@ -22,24 +22,14 @@ public class PanelLista extends JPanel implements ActionListener {
 
     private JTextArea txtCadena;
     private JScrollPane scrCadena;
-    private JScrollPane scrImagen;
-    private JPanel panelImagen;
     private JPanel panelCadena;
     private JButton btnVisualizar;
-    private JLabel lblImagen;
-    private Icon icnImagen;
-
+    
     public PanelLista() {
         setBorder(BorderFactory.createTitledBorder("Representación de la Hilera"));
         setSize(490, 385);
         setLayout(null);
-
-        panelImagen = new JPanel();
-        panelImagen.setBounds(10, 20, 470, 170);
-        panelImagen.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        panelImagen.setLayout(null);
-        add(panelImagen);
-
+        
         panelCadena = new JPanel();
         panelCadena.setBounds(10, 230, 470, 140);
         panelCadena.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -58,11 +48,7 @@ public class PanelLista extends JPanel implements ActionListener {
         txtCadena.setToolTipText("Cadena en forma de Lista");
         txtCadena.setWrapStyleWord(true);
         panelCadena.add(scrCadena);
-
-        scrImagen = new JScrollPane();
-        scrImagen.setBounds(10, 10, 450, 150);
-        panelImagen.add(scrImagen);
-        
+    
         setVisible(true);
 
     }
@@ -82,13 +68,14 @@ public class PanelLista extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnVisualizar) {
-            panelImagen.remove(scrImagen);
-            repaint();
-            lblImagen = new JLabel();
-            icnImagen = new ImageIcon("src//grafico.jpg");
-            lblImagen.setIcon(icnImagen);
-            panelImagen.add(scrImagen);
+            JScrollPane scrImagen = new JScrollPane();
+            scrImagen.setBounds(10, 25, 450, 150);
+            ImageIcon icnImagen = new ImageIcon("src//grafico.jpg");
+            icnImagen.getImage().flush();
+            JLabel lblImagen = new JLabel(icnImagen);
+            add(scrImagen);
             scrImagen.setViewportView(lblImagen);
+            
             repaint();
         }
     }

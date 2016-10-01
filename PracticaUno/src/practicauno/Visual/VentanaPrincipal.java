@@ -32,21 +32,10 @@ import practicauno.Visual.Paneles.PanelMetodoUno;
 public class VentanaPrincipal extends JFrame implements ActionListener, KeyListener {
 
     private JTextArea txtCadena;
-
     private JButton btnCrearHilera;
-    private JButton btnMetodoTres;
-    private JButton btnMetodoCuatro;
-    private JButton btnMetodoCinco;
-    private JButton btnMetodoSeis;
-    private JButton btnMetodoSiete;
-    private JButton btnMetodoOcho;
-
     private JScrollPane scrCadena;
-
     private PanelLista panelLista;
-
     private Hilera hilera;
-
     JTabbedPane Pestanas;
     
     /**
