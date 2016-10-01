@@ -1,9 +1,15 @@
+/**
+ * @author Juan Sebastian Pelaez, Juan Esteban Marin
+ */
 package practicauno.Nodo;
 
+/**
+ * 
+ * Estructura del Nodo que usaremos para las listas
+ */
 public class Nodo {
     
     private char dato;
-    private int indice;
     private Nodo liga;
 
     public char getDato() {
@@ -21,19 +27,10 @@ public class Nodo {
     public void setLiga(Nodo liga) {
         this.liga = liga;
     }
-
-    public int getIndice() {
-        return indice;
-    }
-
-    public void setIndice(int indice) {
-        this.indice = indice;
-    } 
-
+    
     public Nodo(char dato) {
         this.dato = dato;
         this.liga = null;
-        this.indice = 0;
     }
     
 }

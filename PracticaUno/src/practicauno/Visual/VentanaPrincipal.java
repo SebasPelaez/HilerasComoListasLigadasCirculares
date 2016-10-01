@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author Juan Sebastian Pelaez, Juan Esteban Marin
  */
 package practicauno.Visual;
 
@@ -28,29 +27,20 @@ import practicauno.Visual.Paneles.PanelMetodoTres;
 import practicauno.Visual.Paneles.PanelMetodoUno;
 
 /**
- *
- * @author jsebastian.pelaez
+ * Clase que Genera el frame donde se realiza la simulacion
  */
 public class VentanaPrincipal extends JFrame implements ActionListener, KeyListener {
 
     private JTextArea txtCadena;
-
     private JButton btnCrearHilera;
-    private JButton btnMetodoTres;
-    private JButton btnMetodoCuatro;
-    private JButton btnMetodoCinco;
-    private JButton btnMetodoSeis;
-    private JButton btnMetodoSiete;
-    private JButton btnMetodoOcho;
-
     private JScrollPane scrCadena;
-
     private PanelLista panelLista;
-
     private Hilera hilera;
-
     JTabbedPane Pestanas;
     
+    /**
+     * Constructor
+     */
     public VentanaPrincipal() {
 
         setTitle("Practica Uno Logica III");
@@ -63,6 +53,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
         panelLista = new PanelLista();
         panelLista.setLocation(390, 18);
         getContentPane().add(panelLista);
+
+        Pestanas = new JTabbedPane();
         
         txtCadena = new JTextArea();
         scrCadena = new JScrollPane(txtCadena);
@@ -83,6 +75,10 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
 
     }
 
+    /**
+     * Interfaz de la accion del click
+     * @param e Donde se clickeo
+     */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnCrearHilera) {
             if (txtCadena.getText().equals("")) {
@@ -100,22 +96,35 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
             }
         }
     }
-
+    /**
+     * Interfaz de la accion del teclado
+     * @param e Donde se tecleo
+     */
     public void keyTyped(KeyEvent e) {
         char c = e.getKeyChar();
         if (!Character.isDigit(c) && !Character.isLetter(c) && c != KeyEvent.VK_SPACE) {
             e.consume();
         }
     }
-
+/**
+     * Interfaz de la accion del teclado
+     * @param e Donde se tecleo
+     */
     public void keyPressed(KeyEvent e) {
     }
-
+/**
+     * Interfaz de la accion del teclado
+     * @param e Donde se tecleo
+     */
     public void keyReleased(KeyEvent e) {
     }
 
+    /**
+     *Metodo que se encarga de generar las tabs de las operaciones
+     */
     public void crearTabs(){
-        Pestanas = new JTabbedPane();
+        
+        Pestanas.removeAll();
 	Pestanas.setBounds(20, 145, 360, 200);
 	Pestanas.addTab("Agregar Una Hilera",new PanelMetodoUno(hilera,panelLista));
         Pestanas.addTab("Eliminar", new PanelMetodoDos(hilera,panelLista));

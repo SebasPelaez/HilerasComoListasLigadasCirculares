@@ -1,3 +1,7 @@
+/**
+ *
+ * @author Juan Sebastian Pelaez, Juan Esteban Marin
+ */
 package practicauno;
 
 import java.io.IOException;
@@ -9,12 +13,14 @@ import org.jvnet.substance.skin.NebulaSkin;
 import org.jvnet.substance.skin.SubstanceNebulaLookAndFeel;
 import practicauno.Visual.VentanaPrincipal;
 
-/**
- *
- * @author jsebastian.pelaez
- */
+
 public class PracticaUno {
 
+    /**
+     * 
+     * @param args parametros Java
+     * @throws IOException Por si no resulta la configuracion del Look and Feel
+     */
     public static void main(String[] args) throws IOException {
         JFrame.setDefaultLookAndFeelDecorated(true);
 		SubstanceLookAndFeel.setSkin(new NebulaSkin());

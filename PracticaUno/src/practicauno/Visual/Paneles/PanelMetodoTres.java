@@ -8,6 +8,8 @@ package practicauno.Visual.Paneles;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -21,7 +23,7 @@ import practicauno.Visual.PanelLista;
  *
  * @author Sebas
  */
-public class PanelMetodoTres extends JPanel implements ActionListener{
+public class PanelMetodoTres extends JPanel implements ActionListener,KeyListener{
 
     JButton btnEjecutar;
     JLabel lblNuevaCadena;
@@ -54,14 +56,17 @@ public class PanelMetodoTres extends JPanel implements ActionListener{
         
         txtNuevaCadena = new JTextField();
         txtNuevaCadena.setBounds(100, 20, 80, 20);
+        txtNuevaCadena.addKeyListener(this);
         add(txtNuevaCadena);
         
         txtPosicion = new JTextField();
         txtPosicion.setBounds(100, 45, 80, 20);
+        txtPosicion.addKeyListener(this);
         add(txtPosicion);
         
         txtCantidad = new JTextField();
         txtCantidad.setBounds(100, 75, 80, 20);
+        txtCantidad.addKeyListener(this);
         add(txtCantidad);
         
         btnEjecutar = new JButton("Ejecutar Metodo");
@@ -89,4 +94,24 @@ public class PanelMetodoTres extends JPanel implements ActionListener{
         }
     }
     
+    public void keyTyped(KeyEvent e) {
+        char c = e.getKeyChar();
+        if (e.getSource() == txtNuevaCadena) {
+            if (!Character.isDigit(c) && !Character.isLetter(c) && c != KeyEvent.VK_SPACE) {
+                e.consume();
+            }
+        }
+        if(e.getSource()==txtPosicion || e.getSource()==txtCantidad){
+            if (!Character.isDigit(c)) {
+                e.consume();
+            }
+        }
+
+    }
+
+    public void keyPressed(KeyEvent e) {
+    }
+
+    public void keyReleased(KeyEvent e) {
+    }
 }

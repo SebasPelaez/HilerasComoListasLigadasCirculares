@@ -1,12 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Juan Sebastian Pelaez, Juan Esteban Marin
  */
 package practicauno.Lista;
 
 import practicauno.Nodo.Nodo;
 
+/**
+ * Clase Lista Simplemente Ligada circular
+ */
 public class Lista_C {
 
     private Nodo first;
@@ -56,13 +57,11 @@ public class Lista_C {
         if (y != null) {
             x.setLiga(y.getLiga());
             y.setLiga(x);
-            x.setIndice(y.getIndice() + 1);
             if (y == lastNode()) {
                 last = x;
             }
         } else if (isVoid()) {
             x.setLiga(x);
-            x.setIndice(1);
             first = last = x;
         }
     }
@@ -88,16 +87,6 @@ public class Lista_C {
                 first = firstNode().getLiga();
                 lastNode().setLiga(firstNode());
             }
-            organizeNode(y.getLiga());
-        }
-    }
-
-    public void organizeNode(Nodo p){
-        if(p.getIndice()!=1){
-            do{
-                p.setIndice(p.getIndice()-1);
-                p=p.getLiga();
-            }while(!istheEnd(p));
         }
     }
     
