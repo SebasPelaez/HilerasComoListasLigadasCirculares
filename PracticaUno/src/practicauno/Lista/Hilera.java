@@ -432,7 +432,7 @@ public class Hilera extends Lista_C {
              * en la linea de comandos esto es: 
              * dot -Tpng -o archivo.png archivo.dot
              */
-            pbuilder = new ProcessBuilder("C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe", "-Tpng", "-o", "src//grafico.jpg", "src//grafico.txt");
+            pbuilder = new ProcessBuilder("Graphviz2.38//bin//dot.exe", "-Tpng", "-o", "src//grafico.jpg", "src//grafico.txt");
             pbuilder.redirectErrorStream(true);
             //Ejecuta el proceso
             pbuilder.start();

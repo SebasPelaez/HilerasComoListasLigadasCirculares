@@ -5,11 +5,11 @@ node [fillcolor="#EEEEEE"];
 node [color="#EEEEEE"];
 edge [color="#31CEF0"];
 Primero [label=Primero, fillcolor=lightblue]
-Nodo1 [label=d];
+Nodo1 [label=f];
 Nodo2 [label=a];
-Nodo3 [label=f];
+Nodo3 [label=d];
 Nodo4 [label=s];
-Nodo5 [label=d];
+Nodo5 [label=f];
 Primero -> Nodo1[style=dashed,color=red]
 Nodo1 -> Nodo2
 Nodo2 -> Nodo3
