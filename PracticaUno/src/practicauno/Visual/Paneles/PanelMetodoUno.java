@@ -78,7 +78,10 @@ public class PanelMetodoUno extends JPanel implements ActionListener{
                 Hilera b = new Hilera();
                 b.construirEnLista(txtNuevaCadena.getText());
                 int pos = Integer.parseInt(txtPosicion.getText());
-                hilera.insert(pos, b);
+                String a = hilera.insert(pos, b);
+                if(a != "0"){
+                    JOptionPane.showMessageDialog(null,a);
+                }
                 hilera.pintarLista(panelLista.getTxtCadena());
                 hilera.guardarEnArchivo();
                 hilera.generarImagen();

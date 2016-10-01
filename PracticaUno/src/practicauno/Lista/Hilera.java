@@ -206,7 +206,7 @@ public class Hilera extends Lista_C {
     }
 
     public void replace(int i, int j, Hilera s) {
-        Nodo p, q, pp;
+        Nodo p,q, pp;
         int c = 1;
         if (!isVoid()) {
             p = firstNode();
@@ -218,10 +218,12 @@ public class Hilera extends Lista_C {
                     p = p.getLiga();
                 } while (c < i);
                 c = 1;
+                if(p!=lastNode()){
                 do {
                     c++;
                     p = p.getLiga();
                 } while (c < j);
+                }
                 if (tamano() == 1) {
                     setFirst(s.firstNode());
                     setLast(s.lastNode());
@@ -230,11 +232,13 @@ public class Hilera extends Lista_C {
                     setFirst(s.firstNode());
                     s.lastNode().setLiga(pp.getLiga());
                     lastNode().setLiga(s.firstNode());
-                } else {
+                } else if(i!=1 && j!= tamano()){
                     pp.setLiga(s.firstNode());
                     s.lastNode().setLiga(p.getLiga());
+                }else{
+                    setFirst(s.firstNode());
+                    setLast(s.lastNode());
                 }
-
             }
         } else {
             System.out.println("Lista Vacia");
@@ -281,13 +285,13 @@ public class Hilera extends Lista_C {
         mostrar un mensaje indicando que son anagramas)
      */
     //MÉTODO 1: INSERTA UNA HILERA T A PARTIR DEL CARACTER i DE LA HILERA ORGINAL
-    public void insert(int i, Hilera s) {
+    public String insert(int i, Hilera s) {
         if (!isVoid()) {
             Nodo p, pp;
             p = firstNode();
             pp = p;
             int c = 1;
-            if (i < tamano()) {
+            if (i <= tamano()) {
                 if (i > 1) {
                     do {
                         c++;
@@ -296,20 +300,19 @@ public class Hilera extends Lista_C {
                     } while (c < i);
                     s.lastNode().setLiga(pp.getLiga());
                     pp.setLiga(s.firstNode());
-                } else {
+                } else if(i==1){
                     lastNode().setLiga(s.firstNode());
                     s.lastNode().setLiga(firstNode());
                     setFirst(s.firstNode());
+                }else{
+                  return "El índice debe ser mayor o igual que 1";  
                 }
-            } else if (i == tamano()) {
-                lastNode().setLiga(s.firstNode());
-                s.lastNode().setLiga(firstNode());
-                setLast(s.lastNode());
-            } else {
-                System.out.println("El índice debe ser menor que: " + tamano());
+            }else {
+                return "El índice debe ser menor que: " + tamano();
             }
 
         }
+        return "0";
     }
 
     public void ordenar() {
