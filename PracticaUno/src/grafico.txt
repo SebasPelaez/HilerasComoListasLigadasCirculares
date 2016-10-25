@@ -5,13 +5,39 @@ node [fillcolor="#EEEEEE"];
 node [color="#EEEEEE"];
 edge [color="#31CEF0"];
 Primero [label=Primero, fillcolor=lightblue]
-Nodo1 [label=r];
-Nodo2 [label=o];
-Nodo3 [label=m];
-Nodo4 [label=a];
+Nodo1 [label=j];
+Nodo2 [label=a];
+Nodo3 [label=d];
+Nodo4 [label=s];
+Nodo5 [label=l];
+Nodo6 [label=j];
+Nodo7 [label=f];
+Nodo8 [label=s];
+Nodo9 [label=d];
+Nodo10 [label= ];
+Nodo11 [label=a];
+Nodo12 [label=s];
+Nodo13 [label=d];
+Nodo14 [label=ñ];
+Nodo15 [label=j];
+Nodo16 [label=f];
+Nodo17 [label= ];
 Primero -> Nodo1[style=dashed,color=red]
 Nodo1 -> Nodo2
 Nodo2 -> Nodo3
 Nodo3 -> Nodo4
-Nodo4 -> Nodo1
+Nodo4 -> Nodo5
+Nodo5 -> Nodo6
+Nodo6 -> Nodo7
+Nodo7 -> Nodo8
+Nodo8 -> Nodo9
+Nodo9 -> Nodo10
+Nodo10 -> Nodo11
+Nodo11 -> Nodo12
+Nodo12 -> Nodo13
+Nodo13 -> Nodo14
+Nodo14 -> Nodo15
+Nodo15 -> Nodo16
+Nodo16 -> Nodo17
+Nodo17 -> Nodo1
 rankdir=LR;}
