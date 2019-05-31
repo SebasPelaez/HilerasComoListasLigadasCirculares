@@ -43,7 +43,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener, KeyListe
      */
     public VentanaPrincipal() {
 
-        setTitle("Practica Uno Logica III");
+        setTitle("Strings as Circular Linked List");
         setSize(400, 185);
         setLayout(null);
         setResizable(false);

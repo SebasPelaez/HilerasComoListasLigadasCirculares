@@ -5,23 +5,58 @@ node [fillcolor="#EEEEEE"];
 node [color="#EEEEEE"];
 edge [color="#31CEF0"];
 Primero [label=Primero, fillcolor=lightblue]
-Nodo1 [label=j];
-Nodo2 [label=a];
-Nodo3 [label=d];
+Nodo1 [label=T];
+Nodo2 [label=h];
+Nodo3 [label=i];
 Nodo4 [label=s];
-Nodo5 [label=l];
-Nodo6 [label=j];
-Nodo7 [label=f];
-Nodo8 [label=s];
-Nodo9 [label=d];
+Nodo5 [label= ];
+Nodo6 [label=i];
+Nodo7 [label=s];
+Nodo8 [label= ];
+Nodo9 [label=a];
 Nodo10 [label= ];
-Nodo11 [label=a];
-Nodo12 [label=s];
-Nodo13 [label=d];
-Nodo14 [label=ñ];
-Nodo15 [label=j];
-Nodo16 [label=f];
+Nodo11 [label=s];
+Nodo12 [label=t];
+Nodo13 [label=r];
+Nodo14 [label=i];
+Nodo15 [label=n];
+Nodo16 [label=g];
 Nodo17 [label= ];
+Nodo18 [label=r];
+Nodo19 [label=e];
+Nodo20 [label=p];
+Nodo21 [label=r];
+Nodo22 [label=e];
+Nodo23 [label=s];
+Nodo24 [label=e];
+Nodo25 [label=n];
+Nodo26 [label=t];
+Nodo27 [label=e];
+Nodo28 [label=d];
+Nodo29 [label= ];
+Nodo30 [label=a];
+Nodo31 [label=s];
+Nodo32 [label= ];
+Nodo33 [label=c];
+Nodo34 [label=i];
+Nodo35 [label=r];
+Nodo36 [label=c];
+Nodo37 [label=u];
+Nodo38 [label=l];
+Nodo39 [label=a];
+Nodo40 [label=r];
+Nodo41 [label= ];
+Nodo42 [label=l];
+Nodo43 [label=i];
+Nodo44 [label=n];
+Nodo45 [label=k];
+Nodo46 [label=e];
+Nodo47 [label=d];
+Nodo48 [label= ];
+Nodo49 [label=l];
+Nodo50 [label=i];
+Nodo51 [label=s];
+Nodo52 [label=t];
 Primero -> Nodo1[style=dashed,color=red]
 Nodo1 -> Nodo2
 Nodo2 -> Nodo3
@@ -39,5 +74,40 @@ Nodo13 -> Nodo14
 Nodo14 -> Nodo15
 Nodo15 -> Nodo16
 Nodo16 -> Nodo17
-Nodo17 -> Nodo1
+Nodo17 -> Nodo18
+Nodo18 -> Nodo19
+Nodo19 -> Nodo20
+Nodo20 -> Nodo21
+Nodo21 -> Nodo22
+Nodo22 -> Nodo23
+Nodo23 -> Nodo24
+Nodo24 -> Nodo25
+Nodo25 -> Nodo26
+Nodo26 -> Nodo27
+Nodo27 -> Nodo28
+Nodo28 -> Nodo29
+Nodo29 -> Nodo30
+Nodo30 -> Nodo31
+Nodo31 -> Nodo32
+Nodo32 -> Nodo33
+Nodo33 -> Nodo34
+Nodo34 -> Nodo35
+Nodo35 -> Nodo36
+Nodo36 -> Nodo37
+Nodo37 -> Nodo38
+Nodo38 -> Nodo39
+Nodo39 -> Nodo40
+Nodo40 -> Nodo41
+Nodo41 -> Nodo42
+Nodo42 -> Nodo43
+Nodo43 -> Nodo44
+Nodo44 -> Nodo45
+Nodo45 -> Nodo46
+Nodo46 -> Nodo47
+Nodo47 -> Nodo48
+Nodo48 -> Nodo49
+Nodo49 -> Nodo50
+Nodo50 -> Nodo51
+Nodo51 -> Nodo52
+Nodo52 -> Nodo1
 rankdir=LR;}

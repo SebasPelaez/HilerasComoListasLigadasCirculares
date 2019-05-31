@@ -1,16 +1,32 @@
-# **Hileras representadas como listas ligadas Circulares**
+# Strings represented as Circular Linked List
 
-El presente proyecto es un conjunto de algoritmos desarrollados en Java que se utilizan para manejar hileras representadas como listas ligadas circulares. El proyecto esta
-en la capacidad de aceptar como entrada una hilera cualquiera, y con base en ella construir la lista ligada  circula que la representa.
+This repository contains a Java desktop application, which is a set of algorithms used to handle strings represented as circular linked lists. 
 
-Cada letra de la hilera es representada por un nodo en la lista (**no se consideran signos de puntuación**). 
+The project accepts any string as input and then build a circular linked list that represents it.
 
-Las operaciones que desarrollan en el proyecto son: 
-* Agregar o insertar una hilera entrada por pantalla.
-* Eliminar una parcial o completamente la hilera original.
-* Modificar hilera (operación REPLACE).
-* Invertir la hilera.
-* Ordenar la hilera alfabéticamente.
-* Determinar si la hilera original es substring de otra hilera entrada por pantalla, o viceversa.
-* Determinar si la hilera constituye un palíndromo o no.
-* Determinar si la hilera es anagrama de otra.
+Each alphanumeric character in the string is represented by a node in the list. This project has not in account the special characters.
+
+For this project, you can try the following tasks:
+
+* Add or insert a string.
+* Delete the string: partially or completely.
+* Modify string (REPLACE operation).
+* Reverse the string.
+* Sort the row alphabetically.
+* Determine if the original string is substring from another string.
+* Determine if the string is a palindrome or not.
+* Determine if the string is an anagram of another.
+
+### Application Screens
+* **Index**
+![index](assets/index.JPG)
+
+* **Main**
+![main](assets/main.JPG)
+
+### Environment
+
+This project is developed in Java 8 environment. If you want to execute the project you must have Java JDK 1.8.1 and ```substance-4.3.jar```. 
+
+
+_Feel free to make my comments, corrections or advice_
